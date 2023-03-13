@@ -1,0 +1,64 @@
+QUERY SCHOOLDB
+
+
+/// ATTENDANCES
+
+CREATE TABLE [dbo].[AttendanceTbl] (
+    [AttNum]    INT          IDENTITY (1, 1) NOT NULL,
+    [AttStId]   INT          NOT NULL,
+    [AttStName] VARCHAR (50) NOT NULL,
+    [AttDate]   DATE         NOT NULL,
+    [AttStatus] VARCHAR (10) NOT NULL,
+    PRIMARY KEY CLUSTERED ([AttNum] ASC)
+);
+
+
+///EVENTS
+
+CREATE TABLE [dbo].[EventsTbl] (
+    [EId]       INT          IDENTITY (1, 1) NOT NULL,
+    [EDesc]     VARCHAR (50) NOT NULL,
+    [EDate]     DATE         NOT NULL,
+    [EDuration] INT          NOT NULL,
+    PRIMARY KEY CLUSTERED ([EId] ASC)
+);
+
+//FEES
+
+CREATE TABLE [dbo].[FeesTbl] (
+    [PayId]  INT          IDENTITY (1, 1) NOT NULL,
+    [StId]   INT          NOT NULL,
+    [StName] VARCHAR (50) NOT NULL,
+    [Month]  VARCHAR (50) NOT NULL,
+    [Amt]    INT          NOT NULL,
+    PRIMARY KEY CLUSTERED ([PayId] ASC)
+);
+
+
+
+//STUDENTS
+
+CREATE TABLE [dbo].[StudentTbl] (
+    [StId]      INT          IDENTITY (1, 1) NOT NULL,
+    [StName]    VARCHAR (50) NOT NULL,
+    [StGen]     VARCHAR (10) NOT NULL,
+    [StDOB]     DATE         NOT NULL,
+    [StClass]   VARCHAR (10) NOT NULL,
+    [StFees]    INT          NOT NULL,
+    [StAddress] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([StId] ASC)
+);
+
+
+//TEACHERS
+
+CREATE TABLE [dbo].[TeacherTbl] (
+    [TId]    INT          IDENTITY (1, 1) NOT NULL,
+    [TName]  VARCHAR (50) NOT NULL,
+    [TGen]   VARCHAR (10) NOT NULL,
+    [TPhone] VARCHAR (50) NOT NULL,
+    [TSub]   VARCHAR (50) NOT NULL,
+    [TAdd]   VARCHAR (50) NOT NULL,
+    [TDOB]   DATE         NOT NULL,
+    PRIMARY KEY CLUSTERED ([TId] ASC)
+);
